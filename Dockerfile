@@ -2,7 +2,7 @@ FROM node:16 as builder
 
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+COPY package.json ./
 
 RUN yarn config set registry https://registry.npmmirror.com
 
@@ -20,7 +20,7 @@ RUN yarn config set registry https://registry.npmmirror.com
 COPY package.json ./
 RUN yarn
 
-COPY --from=builder .next public next.config.js ./
+COPY --from=builder /app/node_modules /app/.next /app/public app/next.config.js /app/package.json ./
 
 ENV HOST 0.0.0.0
 EXPOSE 3000
