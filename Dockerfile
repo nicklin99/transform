@@ -12,14 +12,17 @@ RUN yarn
 
 RUN yarn build
 
+RUN tar -czvf dist.tar.gz .next public next.config.js package.json
+
 FROM node:16
 
 WORKDIR /app
 
-COPY --from=builder /app/node_modules /app/.next /app/public app/next.config.js /app/package.json ./
+COPY --from=builder /app/dist.tar.gz ./
 
-RUN yarn config set registry https://registry.npmmirror.com
-RUN yarn
+RUN tar -xzvf dist.tar.gz
+
+RUN rm -rf dist.tar.gz
 
 EXPOSE 3000
 
