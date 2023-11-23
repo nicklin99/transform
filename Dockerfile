@@ -18,7 +18,9 @@ WORKDIR /app
 
 COPY --from=builder /app/node_modules /app/.next /app/public app/next.config.js /app/package.json ./
 
-ENV HOST 0.0.0.0
+RUN yarn config set registry https://registry.npmmirror.com
+RUN yarn
+
 EXPOSE 3000
 
 CMD [ "yarn", "start" ]
