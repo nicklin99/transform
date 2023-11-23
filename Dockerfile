@@ -12,7 +12,7 @@ RUN yarn
 
 RUN yarn build
 
-RUN tar -czvf dist.tar.gz .next public next.config.js package.json
+RUN tar -czvf dist.tar.gz node_modules .next public next.config.js package.json
 
 FROM node:16
 
