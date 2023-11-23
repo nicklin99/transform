@@ -2,13 +2,13 @@ FROM node:16 as builder
 
 WORKDIR /app
 
-COPY package.json yarn.lock ./
+COPY package.json ./
 
 RUN yarn config set registry https://registry.npmmirror.com
 
-RUN yarn
-
 COPY . .
+
+RUN yarn
 
 RUN yarn build
 
