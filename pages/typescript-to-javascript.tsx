@@ -7,7 +7,7 @@ import { Alert } from "evergreen-ui";
 export default function TypescriptToJavascript() {
   const transformer = useCallback(
     ({ value }) =>
-      request("/api/typescript-to-javascript", value, "plain/text"),
+      request("/transform/api/typescript-to-javascript", value, "plain/text"),
     []
   );
 

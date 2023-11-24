@@ -41,7 +41,7 @@ export default function TypescriptToZod() {
       }).toString();
 
       const { schema, error } = await request(
-        `/api/typescript-to-zod?${params}`,
+        `/transform/api/typescript-to-zod?${params}`,
         value,
         "text/plain"
       );

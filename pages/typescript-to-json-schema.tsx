@@ -7,7 +7,7 @@ import { Alert } from "evergreen-ui";
 export default function TypescriptToJsonSchema() {
   const transformer = useCallback(async ({ value }) => {
     const x = await request(
-      "/api/typescript-to-json-schema",
+      "/transform/api/typescript-to-json-schema",
       value,
       "text/plain"
     );
