@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 
 const config = {
+  basePath: '/transform',
   webpack(config, options) {
     config.node = {
       fs: "empty",

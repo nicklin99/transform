@@ -27,5 +27,3 @@ RUN rm -rf dist.tar.gz
 EXPOSE 3000
 
 CMD [ "yarn", "start" ]
-
-# docker build --platform linux/amd64 -t registry.cn-hangzhou.aliyuncs.com/ktools/transform .
