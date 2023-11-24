@@ -18,6 +18,8 @@ FROM node:16
 
 WORKDIR /app
 
+VOLUME /app
+
 COPY --from=builder /app/dist.tar.gz ./
 
 RUN tar -xzvf dist.tar.gz
